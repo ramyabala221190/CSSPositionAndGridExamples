@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<head>
+  <style>
+  a{
+    text-decoration: none;
+    text-align: center;
+    display: grid; /* this is required for the text-align to work in this scenario   */
+  }
+
+  .flex-wrap-container{
+    display:flex;
+    flex-wrap:wrap;
+    /*
+    The initial value of the flex-wrap property is nowrap. This means that if you have a set of flex items that are
+    too wide for their container, they will overflow it. If you want to cause them to wrap once they become
+    too wide you must add the flex-wrap property with a value of wrap
+    */
+    border:1px solid black;
+    height:400px;
+    width:800px; /* I have fixed the width of the container to a small value to check the wrapping effect   */
+  }
+
+  .flex-column-container{
+    display:flex;
+    flex-direction:column;
+    border:1px solid black;
+    height:400px;
+    /*
+    vertical axis is the main axis and the horizontal axis is the cross axis when items are aligned in the column direction
+    */
+  }
+
+  .col-item1{
+    align-self:center;
+    /*
+    align-self will align the item across the cross axis. Since we are aligning items along the column,horizontal axis
+    is the cross axis and vertical axis is the main axis.
+    align-self will move the item horizontally(across the cross axis) to the center.
+    By default the items will be horizontally(across the cross axis) at the start of the container.
+    */
+  }
+
+  .col-item2{
+    align-self:flex-end;
+    /*
+    align-self will align the item across the cross axis. Since we are aligning items along the column,horizontal axis
+    is the cross axis and vertical axis is the main axis.
+    align-self will move the item horizontally(across the cross axis) to the end of the flex container.
+    By default the items will be horizontally(across the cross axis) at the start of the container.
+    */
+  }
+
+  .flex-container{
+    display:flex;
+    border:1px solid black;
+    height:400px;
+
+    /*justify-content:center;
+    All the flex items are moved to the center of the flex container.
+    (start)|<space>...<space><space>flex-item1flex-item2flex-item3flex-item4<space><space>...<space>|(end)
+
+    */
+
+    /*justify-content:flex-end;
+    All the flex items are moved to the end or the right side of the flex container.
+    (start)|<space>...<space><space>flex-item1flex-item2flex-item3flex-item4|(end)
+    */
+
+    /*justify-content:flex-start;
+    All the flex items are moved to the left or the left side of the flex container.
+    (start)|flex-item1flex-item2flex-item3flex-item4<space><space>...<space>|(end)
+
+    */
+
+    /*justify-content:space-around;
+    All the flex items are distributed along the row of the flex container such that there is space around each
+    flex item.This might lead to unequal distance between the flex items.
+    */
+
+    /*justify-content:space-evenly;
+    All the flex items are distributed along the row of the flex container such that there is equal space around each
+    flex item.So the distance between the consecutive flex items are same.
+    (start)|<space>flex-item1<space>flex-item2<space>flex-item3<space>flex-item4<space>|(end)
+    */
+
+    /*justify-content:space-between;
+    All the flex items are distributed along the row of the flex container such that the first flex item is
+    at the starting of the container, the last flex item is at the end of the container and the remaining Flex
+    items are distributed such that there is equal space between all flex items.
+    (start)|flex-item1<space>flex-item2<space>flex-item3<space>flex-item4|(end)
+
+    */
+  }
+
+  .flex-item{
+    width:200px;
+    height:50px;
+    border:1px solid red;
+    background-color:aliceblue;
+    padding:5px;
+    margin:5px;
+  }
+
+  .item1{
+    align-self:center;
+    /*
+    align-self will align the item across the cross axis. Since we are aligning items along the row,horizontal axis
+    is the main axis and vertical axis is the cross axis.
+    align-self will move the item vertically(across the cross axis) to the center.
+    By default the items will be vertically(across the cross axis) at the start of the container.
+    */
+  }
+
+  .item2{
+    align-self:flex-end;
+    /*
+    align-self will align the item across the cross axis. Since we are aligning items along the row,horizontal axis
+    is the main axis and vertical axis is the cross axis.
+    align-self will move the item vertically(across the cross axis) to the end of the container.
+    By default the items will be vertically(across the cross axis) at the start of the container.
+    */
+  }
+
+  .item3{
+    flex-grow:2; /*flex-grow decides how much the item will grow relative to the other flex items.Default value is 0   */
+  }
+
+  .item4{
+    flex-grow:1;
+    /*flex-grow decides how much the item will grow relative to the other flex items.Default value is 0.
+    It is the max size of the item.
+    */
+    flex-shrink:1;
+    /*flex-grow decides how much the item will shrink relative to the other flex items.
+    Default value is 0. You can test this in mobile device, where the item with a larger flex-shrink value
+    will have more shrinking capacity than others.
+    It is the min size of the item.
+    */
+  }
+
+
+  </style>
+</head>
+
+<body>
+
+  <div class="flex-container">
+    <div class="flex-item item1"><a>1</a></div>
+    <div class="flex-item item2"><a>2</a></div>
+    <div class="flex-item item3"><a>3</a></div>
+    <div class="flex-item item4"><a>4</a></div>
+  </div>
+
+  <div class="flex-column-container">
+    <div class="flex-item col-item1"><a>1</a></div>
+    <div class="flex-item col-item2"><a>2</a></div>
+    <div class="flex-item"><a>3</a></div>
+    <div class="flex-item"><a>4</a></div>
+  </div>
+
+  <div class="flex-wrap-container">
+    <div class="flex-item"><a>1</a></div>
+    <div class="flex-item"><a>2</a></div>
+    <div class="flex-item"><a>3</a></div>
+    <div class="flex-item"><a>4</a></div>
+  </div>
+
+</body>
+</html>

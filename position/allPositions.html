@@ -1,0 +1,100 @@
+<!<!DOCTYPE html>
+<head>
+<style>
+  .main{
+    display:flex;
+    width:100%;
+  }
+  .stickyContainer{
+    height:500px;
+    width:500px;
+    overflow-y:auto;
+    margin:0 auto; /*center the element*/
+  }
+  .container{
+    border:1px solid black;
+    position:relative;
+    width:500px;
+    overflow-y:auto;
+  }
+.fixed{
+  position:fixed;
+  top:0px;
+  background-color:pink;
+  z-index:1; /*this has been set to avoid the sticky heading from overlapping the fixed heading on scroll */
+}
+.sticky{
+  position:sticky;
+  top:20px; /*This element will be placed 20px from the top relative to itself.Till the time you reach the element,
+  the element also scrolls. Once you reach the element i.e cross 20 px from the top, the element becomes fixed
+  and doesnt scroll further */
+  background-color:green;
+  text-align:right;
+}
+.box{
+  border:1px solid red;
+  width:200px;
+}
+.static{
+  position:static;
+  background-color:yellow;
+}
+
+.absolute_2{
+  position:absolute;
+  top: 5px;
+  left: 90px;
+  background-color: silver;
+  z-index:1
+}
+
+.absolute{
+  position:absolute;
+  top: 5px;
+  left: 90px;
+  background-color: aliceblue;
+}
+.relative{
+  position:relative;
+  left: 10px;
+  right: 15px;
+  top: 25px;
+  background-color:lightgreen;
+}
+
+</style>
+</head>
+<body>
+<div class="main">
+<div class="container">
+<p class="static box">I am a static paragraph</p>
+
+<p class="absolute_2 box">I am an absolute paragraph 2</p>
+
+<p class="absolute box">I am an absolute paragraph 1</p>
+
+<p class="relative box">I am a relative paragraph</p>
+</div>
+<div class="stickyContainer">
+<h2 class="fixed">I am the fixed heading</h2>
+<p class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<h4 class="sticky"> I am the sticky heading</h4>
+<p class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</div>
+
+</div>
+</body>
+
+</html>

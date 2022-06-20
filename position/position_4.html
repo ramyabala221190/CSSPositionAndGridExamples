@@ -1,0 +1,189 @@
+<!-- Tabbed content is fixed and the section with fake content alone is scrolable -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tabbed info box</title>
+  <style>
+  html {
+    font-family: sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+  .tab-link-container{
+    padding-left: 0;
+    margin: 0; /*so that there is no vertical gap between the panels and the tabs  */
+    list-style-type:none; /* to remove the bullet points   */
+    display:flex; /*to arrange the tab links in a row  */
+  }
+
+  .main{
+    display:flex;
+    justify-content: space-between;
+  }
+
+  .tab-link-item{
+    width:150px; /*since the width of the box is 450px and we need to fit in 3 tabs, we set each to 150px*/
+    font-weight:600;
+  }
+
+  .tab-link-subitem{
+    display: inline-block; /*added to decorate the anchor tag */
+    text-decoration: none;
+    width: 100%;
+    line-height: 3;
+    background-color: red; /*inactive tabs must have red background colour*/
+    color: black; /*inactive tabs must have black text colour  */
+    text-align: center; /*align the tab text to center  */
+  }
+
+  .tab-link-container .active{
+    background-color: maroon;/*active tabs must hav maroon background color   */
+    color:white; /*active tabs must hav white text color   */
+  }
+
+  .info-box{
+    width: 450px; /*3 tabs each of 150 px will fit correctly*/
+    height: 400px; /*not good practice for dynamic content*/
+    color:white;
+
+  }
+
+  .wrapper{
+    position:fixed; /*fixed position is added to a wrapper div within the section so that it doesnt interfere with the flex positioning   */
+    top:0;
+  }
+
+  .fake-content{
+    color:white;
+    background-color:maroon;
+  }
+
+  article{
+    position:absolute; /*these are absolutely positioned so that they can overlap each other without disturbing anything else   */
+    height:400px; /*height of article set equal to height of the .info-box   */
+    width:450px;/*width of article set equal to width of the .info-box   */
+  }
+
+  article.active-panel{
+    background-color:maroon; /*active panel must have maroon background color  */
+    z-index:1; /*so that the active panel overlaps the other panels */
+  }
+  </style>
+</head>
+<body>
+
+<div class="main">
+  <section class="info-box">
+    <div class="wrapper">
+    <ul class="tab-link-container">
+      <li onclick="switchTab(event,0)" class="tab-link-item"><a class="active tab-link-subitem">Tab 1</a></li>
+      <li onclick="switchTab(event,1)" class="tab-link-item"><a class="tab-link-subitem">Tab 2</a></li>
+      <li onclick="switchTab(event,2)" class="tab-link-item"><a  class="tab-link-subitem">Tab 3</a></li>
+    </ul>
+    <div class="panels">
+      <article class="active-panel">
+        <h2>The first tab</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque turpis nibh, porttitor nec
+          venenatis eu, pulvinar in augue. Vestibulum et orci scelerisque, vulputate tellus quis, lobortis dui.
+          Vivamus varius libero at ipsum mattis efficitur ut nec nisl. Nullam eget tincidunt metus. Donec ultrices,
+          urna maximus consequat aliquet, dui neque eleifend lorem, a auctor libero turpis at sem. Aliquam ut porttitor
+          urna. Nulla facilisi.</p>
+        </article>
+        <article>
+          <h2>The second tab</h2>
+
+          <p>This tab hasn't got any Lorem Ipsum in it. But the content isn't very exciting all the same.</p>
+        </article>
+        <article>
+          <h2>The third tab</h2>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque turpis nibh, porttitor nec venenatis
+            eu, pulvinar in augue. And now an ordered list: how exciting!</p>
+
+            <ol>
+              <li>dui neque eleifend lorem, a auctor libero turpis at sem.</li>
+              <li>Aliquam ut porttitor urna.</li>
+              <li>Nulla facilisi</li>
+            </ol>
+          </article>
+        </div>
+        </div>
+      </section>
+
+      <section class="fake-content">
+      <h1>Fake content</h1>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      <p>This is fake content. Your main web page contents would probably go here.</p>
+      </section>
+</div>
+      <script>
+
+      function deselect(list){
+        list.forEach((item, i) => {
+          item.target.classList.remove(item.className);
+        });
+
+      }
+
+      function select(list){
+        list.forEach((item, i) => {
+          item.target.classList.add(item.className);
+        });
+
+      }
+
+      function switchTab(event,index){
+        for(let i=0;i< event.currentTarget.children.length;i++){
+          if(!event.currentTarget.children[i].classList.contains('active')){
+            deselect(
+              [
+                {target:document.getElementsByClassName('tab-link-subitem active')[0],className:'active'},
+                {target:document.getElementsByClassName('active-panel')[0],className:'active-panel'}
+              ]
+            )
+            select(
+              [
+                {target:event.currentTarget.children[i],className:'active'},
+                {target:document.getElementsByTagName('article')[index],className:'active-panel'}
+              ]
+            )
+
+          }
+        }
+
+      }
+
+    </script>
+
+  </body>
+  </html>
